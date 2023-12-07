@@ -11,6 +11,10 @@ const routes: Routes = [
     path: 'intro',
     loadChildren: () => import('./auth-screens/intro/intro.module').then( m => m.IntroPageModule)
   },
+  {
+    path: 'auth-screen',
+    loadChildren: () => import('./auth-screens/auth-screen/auth-screen.module').then( m => m.AuthScreenPageModule)
+  },
  ;
 
 @NgModule({
