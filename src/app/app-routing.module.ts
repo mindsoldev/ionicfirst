@@ -7,6 +7,10 @@ const routes: Routes = [
     redirectTo: '',
     pathMatch: 'full'
   },
+  {
+    path: 'intro',
+    loadChildren: () => import('./auth-screens/intro/intro.module').then( m => m.IntroPageModule)
+  },
  ;
 
 @NgModule({
