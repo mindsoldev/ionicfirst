@@ -1,13 +1,20 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>intro</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">intro</ion-title>
-    </ion-toolbar>
-  </ion-header>
+    <swiper-container 
+      #swiper
+      (swiperafterinit)="swiperReady()"
+      (swiperslidechange)="swiperSlideChanged($event)"
+      effect="cube"
+      >
+    <swiper-slide [style.background-image]="'url(assets/imgs/screen1.png)'" class="topRight">
+        <ion-button fill="clear" color="light" (click)="goToLogin()" style="z-index: 10;">SKIP</ion-button>
+    </swiper-slide>
+    <swiper-slide [style.background-image]="'url(assets/imgs/screen2.png)'" class="topRight">
+      <ion-button fill="clear" color="light" (click)="goToLogin()">SKIP</ion-button>
+    </swiper-slide>
+    <swiper-slide [style.background-image]="'url(assets/imgs/screen3.png)'">
+      <ion-button (click)="goToLogin()" shape="round" fill="outline" color="primary" class="transformButton">
+        <ion-text color="light">Let's Start</ion-text>
+      </ion-button>
+    </swiper-slide>
+</swiper-container>
 </ion-content>
