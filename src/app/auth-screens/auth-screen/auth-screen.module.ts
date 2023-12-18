@@ -1,20 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
 import { AuthScreenPageRoutingModule } from './auth-screen-routing.module';
 
 import { AuthScreenPage } from './auth-screen.page';
+import { SignInComponent } from './sign-in/sign-in.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule,
+    ReactiveFormsModule,
     IonicModule,
     AuthScreenPageRoutingModule
   ],
-  declarations: [AuthScreenPage]
+  declarations: [AuthScreenPage, SignInComponent, SignUpComponent]
 })
 export class AuthScreenPageModule {}

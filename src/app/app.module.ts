@@ -16,4 +16,4 @@ import { AppRoutingModule } from './app-routing.module';
 
 export class AppModule {};
 
-export var testMode: boolean = true;
+export var testMode: boolean = false;

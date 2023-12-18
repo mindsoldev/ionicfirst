@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-auth-screen',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuthScreenPage implements OnInit {
 
+  segmentValue: string = "1";
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  segmentChanged(event: any) {
+    console.log(event);
+    this.segmentValue = event.detail.value;
   }
 
 }
