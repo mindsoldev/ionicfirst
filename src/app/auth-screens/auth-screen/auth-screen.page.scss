@@ -1,7 +1,9 @@
 ion-content {
     --background: url('../../../assets/imgs/main.png') no-repeat center center/cover;
     ion-list {
+        margin: 0 4vh;
         border-radius: 5px;
+        box-shadow: 0 0 3px 0 var(--ion-color-medium);
         ion-segment {
             --background: var(--ion-color-primary-contrast);
             border-radius: 20px;
