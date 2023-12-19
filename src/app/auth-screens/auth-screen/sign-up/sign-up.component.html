@@ -60,6 +60,7 @@
 
 <div class="ion-margin-horizontal">
   <ion-button
+    *ngIf="!isLoading"
     class="ion-margin-horizontal"
     size="large" 
     expand="block" 
@@ -67,6 +68,15 @@
     color="primary" 
     (click)="onSubmit()">
     <ion-text>sign Up</ion-text>
+  </ion-button>
+  <ion-button
+    *ngIf="isLoading"
+    class="ion-margin-horizontal"
+    size="large" 
+    expand="block" 
+    shape="round" 
+    color="primary">
+    <ion-spinner></ion-spinner>
   </ion-button>
 </div>
 
