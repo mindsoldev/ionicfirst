@@ -26,7 +26,6 @@ export class StorageService {
   }
 
   removeStorage(key: any) {
-    var value: any = Preferences.remove({key});
-    console.log('removeStorage: ', value);
+    return Preferences.remove({key});
   }
 }

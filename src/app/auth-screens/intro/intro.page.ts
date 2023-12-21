@@ -27,14 +27,12 @@ export class IntroPage implements OnInit {
   }
 
   async goToLogin() {
-    console.log('goToLogin');
     await this.storage.setStorage(INTRO_KEY, 'true');
     this.router.navigateByUrl('/auth-screen', {replaceUrl: true});
   }
 
   swiperReady() {
     this.swiper = this.swiperInstance?.nativeElement.swiper;
-    console.log("Swiper ready", this.swiper);
   }
 
   swiperSlideChanged(e: any) {

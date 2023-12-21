@@ -52,9 +52,11 @@ export class SignInComponent  implements OnInit {
     .catch(e => {
       console.log(e);
       this.isLoading = false;
-      let msg = 'Could not sign up, please try again.';
-      if (e.code == 'auth/email-already-in-use') {
-        msg = 'Email is already in use. try signup with other email id';
+      let msg = 'Could not sign in, please try again.';
+      if (e.code == 'auth/invalid-email') {
+        msg = 'Incorrect email format. Please try again!';
+      } else if (e.code == 'auth/invalid-credential') {
+        msg = 'Incorrect email id or password. Please try again!';
       }
       this.showAlert(msg);
     })

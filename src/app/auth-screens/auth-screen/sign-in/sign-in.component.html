@@ -2,7 +2,7 @@
   <div class="ion-margin-vertical">
     <ion-item lines="full">
       <ion-input formControlName="email" type="text" 
-        placeholder="Enter email or usrname">
+        placeholder="Enter email">
       </ion-input>
     </ion-item>
     <ion-text
@@ -47,6 +47,7 @@
 
 <div class="ion-margin-horizontal">
   <ion-button
+    *ngIf="!isLoading"
     class="ion-margin-horizontal"
     size="large" 
     expand="block" 
@@ -54,6 +55,15 @@
     color="primary" 
     (click)="onSubmit()">
     <ion-text>Log In</ion-text>
+  </ion-button>
+  <ion-button
+    *ngIf="isLoading"
+    class="ion-margin-horizontal"
+    size="large" 
+    expand="block" 
+    shape="round" 
+    color="primary">
+    <ion-spinner></ion-spinner>
   </ion-button>
 </div>
 
