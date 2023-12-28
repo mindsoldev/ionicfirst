@@ -1,0 +1,6 @@
+{
+  "name": "Uber Eats App",
+  "short_name": "UberEatsApp",
+  "display_override": ["window-control-overlay", "minimal-ui"],
+  "display": "standalone",
+}

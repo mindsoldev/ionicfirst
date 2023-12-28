@@ -33,4 +33,4 @@ import { environment } from 'src/environments/environment';
 
 export class AppModule {};
 
-export var testMode: boolean = false;
+export var testMode: boolean = true;
