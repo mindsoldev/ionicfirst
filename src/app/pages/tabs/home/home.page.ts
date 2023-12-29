@@ -1,5 +1,8 @@
 import { AfterContentChecked, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import Swiper from 'swiper';
+import { Geolocation } from '@capacitor/geolocation';
+import { PopoverController } from '@ionic/angular';
+import { PopoverComponent } from './popover/popover.component';
 
 @Component({
   selector: 'app-home',
@@ -24,7 +27,7 @@ export class HomePage implements OnInit, AfterContentChecked {
   cssMode!: boolean;
   autoPlay: any;
 
-  constructor() { }
+  constructor(public popoverController: PopoverController) { }
 
   ngOnInit() {
     // this.banners.push({banner: 'assets/dishes/11.jpeg'});
@@ -184,6 +187,8 @@ export class HomePage implements OnInit, AfterContentChecked {
         price: 100
       },
     ];
+
+    this.getCurrentLocation();
   }
 
   swiperBeforeInit() {
@@ -206,5 +211,59 @@ export class HomePage implements OnInit, AfterContentChecked {
   onSwiper(event: any) {}
 
   onSlideChange() {}
+
+  async getCurrentLocation() {
+    try {
+      const coordinates = await Geolocation.getCurrentPosition();
+      console.log('Current position:', coordinates);
+      this.loc = `Lat.: ${coordinates.coords.latitude}, long.: ${coordinates.coords.longitude}`;
+    } catch (e) {
+      console.log(e);
+      this.openPopover();
+    }
+  }
+
+  openPopover() {
+    const ev = {
+      target: {
+        getBoundingClientRect: () => {
+          return {
+            left: 5
+          };
+        }
+      }
+    };
+    this.presentPopover(ev);
+  }
+
+
+  async presentPopover(ev: any) {
+    const popover = await this.popoverController.create({
+      component: PopoverComponent,
+      cssClass: 'custom-popover',
+      event: ev,
+    });
+
+    await popover.present();
+
+    const { data } = await popover.onDidDismiss();
+    console.log(`Popover dismissed with data: ${data}`);
+    if (data) {
+      this.requestGeolocationPermission();
+    } else {
+      this.loc = 'Karol Bagh, Delhi';
+    }
+  }
+
+  async requestGeolocationPermission() {
+    try {
+      const status = await Geolocation.requestPermissions();
+      console.log(status);
+      if (status?.location == 'granted') this.getCurrentLocation();
+      else this.loc = 'Karol Bagh, Delhi';
+    } catch (e) {
+      console.log(e);
+    }
+  }
 
 }

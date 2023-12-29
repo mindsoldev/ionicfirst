@@ -10,6 +10,7 @@ import { HomePage } from './home.page';
 
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentsModule } from 'src/app/components/components.module';
+import { PopoverComponent } from './popover/popover.component';
 
 @NgModule({
   imports: [
@@ -19,7 +20,7 @@ import { ComponentsModule } from 'src/app/components/components.module';
     HomePageRoutingModule,
     ComponentsModule
   ],
-  declarations: [HomePage],
+  declarations: [HomePage, PopoverComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class HomePageModule {}

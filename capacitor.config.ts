@@ -1,7 +1,7 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
+  appId: 'hu.mindsol.ionic.first',
   appName: 'ionicfirst',
   webDir: 'www',
   server: {
