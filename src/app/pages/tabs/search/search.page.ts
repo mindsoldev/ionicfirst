@@ -96,7 +96,7 @@ export class SearchPage implements OnInit {
       });
       console.log('update restaurant data: ', this.restaurants)
       this.isLoading = false;
-    }, 3000);
+    }, 2000);
   }
 
   onInputQuery() {
