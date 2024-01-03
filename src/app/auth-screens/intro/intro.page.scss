@@ -16,6 +16,8 @@ swiper-container {
         justify-content: flex-end;
     }
     .transformButton {
-        transform: translate(30vw, 75vh);
+        // transform: translate(30vw, 75vh);
+        margin-top: 75vh;
+        margin-left: 15vh;
     }
 }
